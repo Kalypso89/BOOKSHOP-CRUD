@@ -1,0 +1,11 @@
+{
+    "name": "angel/mysql-babysteps",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Angela",
+            "email": "antunezangela89@gmail.com"
+        }
+    ],
+    "require": {}
+}
