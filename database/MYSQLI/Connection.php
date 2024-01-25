@@ -2,14 +2,9 @@
 
 require "./.config";//I'm adding $password here to use it later as a parameter 
 
-// if(!isset($_ENV["MY_PASSWORD"])){
-//     die('There's no password');
-// } I tried to connect to the database by adding my password as an environment variable, but it didn't work
-
 $server = "localhost";
 $database = "bookshop";
 $username = "root";
-// $password = $_ENV["MY_PASSWORD"]; I tried to connect to the database by adding my password as an environment variable, but it didn't work
 
 # ---------CONNECT-----------
 
