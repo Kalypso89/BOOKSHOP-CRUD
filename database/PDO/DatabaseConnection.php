@@ -6,9 +6,9 @@ namespace Database\PDO; //Class's surname
 class DatabaseConnection
 {
     private $server;
-    private $database;
     private $username;
     private $password;
+    private $database;
     private $connection;
 
     public function __construct($server, $username, $password, $database)
