@@ -18,7 +18,7 @@ $mysqliPr = mysqli_connect($server, $username, $password, $database);
 if (!$mysqliPr) {
     die("Connection to database " . mysqli_connect_error() . "has failed");
 }
-echo "Connection established";
+echo "Connection established" . "\n";
 
 //b. Structure based on OOP
 
@@ -30,4 +30,4 @@ if ($mysqliOpp->connect_errno) {
 $setNames = $mysqliOpp->prepare("SET NAMES 'utf8'");
 $setNames->execute();
 var_dump($setNames);
-echo "Connection established";
+echo "Connection established" . "\n";
