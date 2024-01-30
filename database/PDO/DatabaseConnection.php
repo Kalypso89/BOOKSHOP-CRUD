@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\PDO; //Class's surname  
+namespace Database\PDO; //Class surname
 
 
 class DatabaseConnection
@@ -22,6 +22,8 @@ class DatabaseConnection
     public function connect()
     {
         try {
+            //A class has a single instance and it becomes available for the entire project > it's possible thanks to a singleton design pattern
+            //PDO connection needs a DNS, which consists of some basic parameters, like server, name of the database, username, password... The initial string corresponds to DNS. Class PDO represents a connection between PHP and a database server.
             $this->connection = new \PDO(
                 "mysql:host=$this->server;dbname=$this->database",
                 $this->username,
@@ -45,13 +47,13 @@ class DatabaseConnection
     }
 }
 
-require "./.config"; //If I do it this way. I have to type php .\database\PDO\DatabaseConnection.php in the terminal
+require "./.config"; //If I do it this way, I have to type php .\database\PDO\DatabaseConnection.php in the terminal
 
 $server = "localhost";
 $database = "bookshop";
 $username = "root";
 
-//Instance the object of the connection 
+//Instantiate the object of the connection 
 $databaseConnection = new DatabaseConnection($server, $username, $password, $database);
 
 //Connect to my database

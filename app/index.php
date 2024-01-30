@@ -3,10 +3,10 @@
 
 use App\Controllers\BookshopController;
 
-require "vendor/autoload.php"; //permite usar composer
-require "./.config"; //If I do it this way. I have to type php .\app\controllers\BookshopController.php in the terminal
+require "vendor/autoload.php"; //It allows us to use Composer
+require "./.config"; //If I do it this way, I have to type php .\app\controllers\BookshopController.php in the terminal
 
-$bookshop = new BookshopController($password); //instanciamos la clase del controlador
+$bookshop = new BookshopController($password); //We instantiate the class of the controller
 
 $bookshop->store([
     "title" => "Cien años de soledad",

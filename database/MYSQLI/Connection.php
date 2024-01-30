@@ -1,8 +1,8 @@
 <?php
 
-// require "../../.config"; // If I do it this way. I have to type php Connection.php in the terminal
+// require "../../.config"; // If I do it this way, I have to type php Connection.php in the terminal
 
-require "./.config"; //If I do it this way. I have to type php .\database\MYSQLI\Connection.php in the terminal
+require "./.config"; //If I do it this way, I have to type php .\database\MYSQLI\Connection.php in the terminal
 
 
 $server = "localhost";

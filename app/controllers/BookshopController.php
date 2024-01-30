@@ -7,7 +7,7 @@ use Exception;
 
 require "vendor/autoload.php";
 
-//clase disponible como namespace
+//Class available as namespace
 class BookshopController
 {
     private $server;
@@ -16,7 +16,7 @@ class BookshopController
     private $database;
     private $connection;
 
-    // función constructura
+    // Function to create the instances of the class
     public function __construct($password)
     {
         $this->server = "localhost";
@@ -24,14 +24,14 @@ class BookshopController
         $this->password = $password;
         $this->database = "bookshop";
 
-        //instanciar el objeto de la conexión
+        //Instantiate the object of the connection
         $this->connection = new DatabaseConnection(
             $this->server,
             $this->username,
             $this->password,
             $this->database
         );
-        //conectar la base de datos
+        //Connect to the database
         $this->connection->connect();
     }
 
