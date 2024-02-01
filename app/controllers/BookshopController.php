@@ -42,8 +42,24 @@ class BookshopController
      * INDEX: Vista que muestra las listas/colecciones de todos los registros de una entidad dada
      */
 
-    public function index()
+    public function index($table)
     {
+        // construir la consulta
+        $query = "SELECT * FROM $table";
+
+        try {
+            $statement = $this->connection->get_connection()->prepare($query);
+            $statement->execute();
+
+            $results = $statement->fetchAll(\PDO::FETCH_ASSOC);
+            if ($results) {
+                var_dump($results);
+                echo "All data from the table {$table} has been successfully displayed";
+                return $results;
+            }
+        } catch (Exception $e) {
+            echo "An error occurred when trying to display all data from the table {$table}; try it again later";
+        }
     }
 
     /**

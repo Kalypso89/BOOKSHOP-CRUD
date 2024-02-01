@@ -8,11 +8,12 @@ require "./.config"; //If I do it this way, I have to type php app/index.php in 
 
 $bookshop = new BookshopController($password); //We instantiate the class of the controller
 
-$bookshop->store([
-    "title" => "Cien años de soledad",
-    "author" => "Gabriel García Márquez",
-    "genre" => "magical realism",
-    "price" => 15
-]);
+// $bookshop->store([
+//     "title" => "Cien años de soledad",
+//     "author" => "Gabriel García Márquez",
+//     "genre" => "magical realism",
+//     "price" => 15
+// ]);
 
-$bookshop->delete(17);
+// $bookshop->delete(17);
+$bookshop->index("books");
