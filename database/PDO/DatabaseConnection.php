@@ -47,23 +47,23 @@ class DatabaseConnection
     }
 }
 
-require "./.config"; //If I do it this way, I have to type php .\database\PDO\DatabaseConnection.php in the terminal
+// require "./.config"; //If I do it this way, I have to type php .\database\PDO\DatabaseConnection.php in the terminal
 
-$server = "localhost";
-$database = "bookshop";
-$username = "root";
+// $server = "localhost";
+// $database = "bookshop";
+// $username = "root";
 
-//Instantiate the object of the connection 
-$databaseConnection = new DatabaseConnection($server, $username, $password, $database);
+// //Instantiate the object of the connection 
+// $databaseConnection = new DatabaseConnection($server, $username, $password, $database);
 
-//Connect to my database
-$databaseConnection->connect();
+// //Connect to my database
+// $databaseConnection->connect();
 
-//Execute my query 
-$query = 'SELECT * FROM books';
-$results = $databaseConnection->get_connection()->query($query);
+// //Execute my query 
+// $query = 'SELECT * FROM books';
+// $results = $databaseConnection->get_connection()->query($query);
 
-//Obtain the results 
-foreach ($results as $row) {
-    echo $row['title'] . "\n";
-}
+// //Obtain the results 
+// foreach ($results as $row) {
+//     echo $row['title'] . "\n";
+// }
