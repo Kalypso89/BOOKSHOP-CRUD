@@ -53,7 +53,13 @@ class BookshopController
 
             $results = $statement->fetchAll(\PDO::FETCH_ASSOC);
             if ($results) {
-                var_dump($results);
+                foreach ($results as $row) {
+                    echo $row['id'] . "\n";
+                    echo $row['title'] . "\n";
+                    echo $row['author'] . "\n";
+                    echo $row['genre'] . "\n";
+                    echo $row['price'] . "\n";
+                }
                 echo "All data from the table {$table} has been successfully displayed";
                 return $results;
             }
