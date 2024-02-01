@@ -63,17 +63,15 @@ class BookshopController
         $query = "INSERT INTO books (title, author, genre, price) VALUES (?, ?, ?, ?)";
         try {
             $statement = $this->connection->get_connection()->prepare($query);
-            $results = $statement->execute([
+            $statement->execute([
                 $data['title'], $data['author'],
                 $data['genre'], $data['price']
             ]);
-            if (!empty($results)) {
-                $response = "The book {$data['title']} has been successfully stored in the database";
-                var_dump($response);
-                return [$results, $response];
+            if ($statement->rowCount() > 0) {
+                echo "The book {$data['title']} has been successfully stored in the database";
             }
         } catch (Exception $e) {
-            echo "An error occurred when trying to store the data; try it again later";
+            echo "An error occurred when trying to insert the data; try it again later";
         }
     }
 
@@ -101,7 +99,23 @@ class BookshopController
      * DELETE: Elimina un elemento dado
      * EJEMPLO: DELETE FROM `books` WHERE `books`.`id` = 12
      */
-    public function delete()
+
+    public function delete($value)
     {
+        //FALTA comprobar que existe la fila que se quiere eliminar
+
+        // construir la query
+        $query = "DELETE FROM books WHERE id = $value";
+        try {
+            $statement = $this->connection->get_connection()->prepare($query);
+            $statement->execute();
+            if ($statement->rowCount() > 0) {
+                echo "The book with the id {$value} has been successfully deleted from the database";
+            } else {
+                echo "No rows were deleted";
+            }
+        } catch (Exception $e) {
+            echo "An error occurred when trying to delete the data; try it again later";
+        }
     }
 }

@@ -14,3 +14,5 @@ $bookshop->store([
     "genre" => "magical realism",
     "price" => 15
 ]);
+
+$bookshop->delete(17);
