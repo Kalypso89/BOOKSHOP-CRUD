@@ -92,8 +92,10 @@ class BookshopController
             if ($statement->rowCount() > 0) {
                 echo "The book {$data['title']} has been successfully stored in the database";
             }
+            return $statement->rowCount();
         } catch (Exception $e) {
-            echo "An error occurred when trying to insert the data; try it again later";
+            echo "An error occurred when trying to store the data; try it again later";
+            return null;
         }
     }
 
