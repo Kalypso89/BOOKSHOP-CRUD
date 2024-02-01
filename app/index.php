@@ -3,8 +3,8 @@
 
 use App\Controllers\BookshopController;
 
-require "vendor/autoload.php"; //It allows us to use Composer
-require "./.config"; //If I do it this way, I have to type php app/index.php in the terminal
+require "../vendor/autoload.php"; //It allows us to use Composer
+require "../.config"; //If I do it this way, I have to type php app/index.php in the terminal
 
 $bookshop = new BookshopController($password); //We instantiate the class of the controller
 
@@ -15,5 +15,6 @@ $bookshop = new BookshopController($password); //We instantiate the class of the
 //     "price" => 15
 // ]);
 
-// $bookshop->delete(17);
-$bookshop->index("books");
+// $bookshop->delete(18);
+// $bookshop->index("books");
+$bookshop->show("books", 5);

@@ -5,8 +5,6 @@ namespace App\Controllers;
 use Database\PDO\DatabaseConnection;
 use Exception;
 
-require "vendor/autoload.php";
-
 //Class available as namespace
 class BookshopController
 {
@@ -103,8 +101,28 @@ class BookshopController
      * SHOW: Vista que muestra/selecciona un elemento dado
      */
 
-    public function show()
+    public function show($table, $id)
     {
+        // construir la consulta
+        $query = "SELECT * FROM $table WHERE id=$id";
+
+        try {
+            $statement = $this->connection->get_connection()->prepare($query);
+            $statement->execute();
+
+            $results = $statement->fetchAll(\PDO::FETCH_ASSOC);
+            if ($results) {
+                echo $results[0]['id'] . "\n";
+                echo $results[0]['title'];
+                echo $results[0]['author'] . "\n";
+                echo $results[0]['genre'] . "\n";
+                echo $results[0]['price'] . "\n";
+                echo "All data from the book whose id {$id} has been successfully displayed";
+                return $results;
+            }
+        } catch (Exception $e) {
+            echo "An error occurred when trying to display all data from the book whose id {$id}; try it again later";
+        }
     }
 
     /**
@@ -124,17 +142,17 @@ class BookshopController
      * EJEMPLO: DELETE FROM `books` WHERE `books`.`id` = 12
      */
 
-    public function delete($value)
+    public function delete($id)
     {
         //FALTA comprobar que existe la fila que se quiere eliminar
 
         // construir la query
-        $query = "DELETE FROM books WHERE id = $value";
+        $query = "DELETE FROM books WHERE id = $id";
         try {
             $statement = $this->connection->get_connection()->prepare($query);
             $statement->execute();
             if ($statement->rowCount() > 0) {
-                echo "The book with the id {$value} has been successfully deleted from the database";
+                echo "The book with the id {$id} has been successfully deleted from the database";
             } else {
                 echo "No rows were deleted";
             }
