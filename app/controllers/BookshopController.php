@@ -136,8 +136,10 @@ class BookshopController
             } else {
                 echo "No rows were deleted";
             }
+            return $statement->rowCount();
         } catch (Exception $e) {
             echo "An error occurred when trying to delete the data; try it again later";
+            return null;
         }
     }
 }
